@@ -35,25 +35,43 @@ class Menu_model extends CI_Model
 
         return $this->db->get()->result();
     }
+
     public function getMenuInfoById($menu_id)
     {
         $this->db->where('id', $menu_id);
 
         return $this->db
-            ->get('menu_items')
-            ->row();
+                    ->get('menu_items')
+                    ->row();
     }
 
-    public function editmenuinfo($data, $menu_id)
+    public function editmenu($data, $menu_id)
     {
         $this->db->where('id', $menu_id);
 
         return $this->db->update('menu_items', $data);
     }
 
-    public function delete($id)
+    public function getMenuInfo($menu_id)
+{
+    $this->db->where('id', $menu_id);
+
+    return $this->db
+                ->get('menu_items')
+                ->row();
+}
+
+public function editmenuinfo($data, $menu_id)
+{
+    $this->db->where('id', $menu_id);
+
+    return $this->db->update('menu_items', $data);
+}
+
+function delete($id)
     {
         $this->db->where('id', $id);
-        return $this->db->delete('menu_items');
+        $this->db->delete("menu_items");
+        return true;             
     }
 }

@@ -12,6 +12,8 @@ class Home extends CI_Controller{
     function index(){
         $data['about'] = $this->home_model->GetAboutDetails();
          $data['banner'] = $this->home_model->GetBannerDetails();
+         $data['categories'] = $this->home_model->get_categories();
+         $data['menu_items'] = $this->home_model->get_all_items();
 
         $this->load->view('front/home',$data);
     }

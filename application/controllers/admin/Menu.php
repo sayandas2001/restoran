@@ -92,7 +92,7 @@ class Menu extends CI_Controller
 
             $this->load->view( 'admin/menu/menu_add',  $data );
         }  
-      }
+    }
     
 
     public function update($menu_id){
@@ -126,7 +126,7 @@ class Menu extends CI_Controller
         } else {
 
             // Get existing menu information
-            $menuInfo = $this->Menu_model->getMenuInfoById($menu_id);
+            $menuInfo = $this->Menu_model->getMenuInfo($menu_id);
 
             // Keep old image if no new image is uploaded
             $image = $menuInfo->image;
